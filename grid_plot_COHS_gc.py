@@ -384,7 +384,9 @@ def main(rp, Mp, escape, magma_prod, linsty, name, clor):
         cmap='Blues'
     )
     ax.set_yticks(co2_flux)
-    ax.set_xticks(fo2_grid)
+    arr = np.arange(len(fo2_grid))
+    even_mask = (arr % 2 == 0)
+    axs.set_xticks(fo2_grid[even_mask])
     ax.axhline(np.log10(1.8e10 / 41.5e10), linewidth=5, color='r', label='Modern Earth')
     ax.axvline(0, linewidth=5, color='r', linestyle='--')
     ax.axvline(-8.4, linewidth=5, color='g', linestyle='--', label='Mercury')
@@ -404,7 +406,7 @@ def main(rp, Mp, escape, magma_prod, linsty, name, clor):
     cbar2.ax.tick_params(labelsize=28)
     cbar2.set_label('Model density', fontsize=32)
 
-    plt.savefig('/Users/rahularora/Desktop/Project/Work/lowmu/Final plots/H2_CO2_distr.png')
+    plt.savefig('./H2_CO2_distr.png')
 
     # ----------------------------
     # Figure 2: φ_H2 / φ_S vs fO2
@@ -437,7 +439,9 @@ def main(rp, Mp, escape, magma_prod, linsty, name, clor):
     ax.axvline(-8.4, linewidth=5, color='g', linestyle='--', label='Mercury')
     ax.axvline(-4.5, linewidth=5, color='y', linestyle='--', label='Mars')
     ax.set_yticks(co2_flux)
-    ax.set_xticks(fo2_grid)
+    arr = np.arange(len(fo2_grid))
+    even_mask = (arr % 2 == 0)
+    axs.set_xticks(fo2_grid[even_mask])
     ax.xaxis.set_tick_params(labelsize=30)
     ax.yaxis.set_tick_params(labelsize=30)
     ax.set_xlabel(r'$\mathit{f}O_2 (FMQ)$', fontsize=45.0)
@@ -447,7 +451,7 @@ def main(rp, Mp, escape, magma_prod, linsty, name, clor):
     cbar2 = fig.colorbar(im4, ax=ax, pad=0.01, label='Model density', shrink=0.75, aspect=30)
     cbar2.ax.tick_params(labelsize=28)
     cbar2.set_label('Model density', fontsize=32)
-    plt.savefig('/Users/rahularora/Desktop/Project/Work/lowmu/Final plots/H2_S.png')
+    plt.savefig('./H2_S.png')
 
     # ----------------------------
     # Figure 3: φ_H2 vs fO2 (left) and φ_H2 vs H2O wt% (right)
@@ -475,7 +479,9 @@ def main(rp, Mp, escape, magma_prod, linsty, name, clor):
         cmap='Blues'
     )
     axs.set_yticks(co2_flux)
-    axs.set_xticks(fo2_grid)
+    arr = np.arange(len(fo2_grid))
+    even_mask = (arr % 2 == 0)
+    axs.set_xticks(fo2_grid[even_mask])
     axs.invert_yaxis()
     axs.axhline(np.log10(1.8e10), linewidth=5, color='r', label='Modern Earth')
     axs.axvline(0, linewidth=5, color='r', linestyle='--')
@@ -510,7 +516,9 @@ def main(rp, Mp, escape, magma_prod, linsty, name, clor):
         cmap='Blues'
     )
     ax.set_yticks(co2_flux)
-    ax.set_xticks(wh20_grid)
+    arr = np.arange(len(wh20_grid))
+    even_mask = (arr % 2 == 0)
+    ax.set_xticks(np.round(wh20_grid[even_mask],2))
     ax.axhline(np.log10(1.8e10), linewidth=5, color='r', label='Modern Earth')
     ax.axvline(-3, linewidth=5, color='r', linestyle='--')
     ax.xaxis.set_tick_params(labelsize=30)
@@ -527,7 +535,7 @@ def main(rp, Mp, escape, magma_prod, linsty, name, clor):
     cbar2.ax.tick_params(labelsize=28)
     cbar2.set_label('Model density', fontsize=32)
 
-    plt.savefig('/Users/rahularora/Desktop/Project/Work/lowmu/Final plots/H2_distr.png')
+    plt.savefig('./H2_distr.png')
 
     # --------------------------------------------------------------------
     # The large commented diagnostic/plotting blocks below are preserved

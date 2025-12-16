@@ -57,13 +57,6 @@ molecules = [
 # Output directory variants (unchanged)
 outfile = [
     'Output_with_gc_COHS',
-    'Arc_volcanism',
-    'Output_with_sulphate',
-    'Output_without_sulphide',
-    'Output_shifted_ssolubility',
-    'Output_reduced_h2osolubility',
-    'Output_high_wco2',
-    'Output_without_sulphate'
 ]
 
 # Representative compositions and molar masses (kept as-is)
@@ -269,10 +262,10 @@ def COHS_sys_solver(temp, mco2_tot, mh2o_tot, ms_tot, dfmq, contfile):
 
     # Try to initialize from last file row if requested and available
     if (uselast == 1 and os.path.exists(
-        f'/Users/rahularora/Desktop/Project/Work/degassing_model/{outfile[fileno]}/{contfile}'
+        f'./{outfile[fileno]}/{contfile}'
     )):
         lastfile = np.genfromtxt(
-            f'/Users/rahularora/Desktop/Project/Work/degassing_model/{outfile[fileno]}/{contfile}',
+            f'./{outfile[fileno]}/{contfile}',
             delimiter=','
         )
         ind = np.argmin(np.abs(Pres * np.ones_like(lastfile[1:, 0]) - lastfile[1:, 0]))
@@ -391,7 +384,7 @@ def writeplot(filename, pres, sol, xxco2tot, xxh2otot, title):
     mmw /= pres[-1]
 
     # Write CSV to the selected output folder
-    path = f'/Users/rahularora/Desktop/Project/Work/degassing_model/{outfile[fileno]}/{filename}.csv'
+    path = f'./{outfile[fileno]}/{filename}.csv'
     with open(path, 'w+') as file:
         file.writelines('P,mmw,mfco2,mfh2o,mfs,mfh2,'
                         'pco2,ph2o,pch4,pco,ph2,pso2,ph2s,ps2,alphagas\n')
@@ -426,7 +419,7 @@ for t in range(len(Temp)):
                     print(f'{fo2[i]}_{np.log10(wh2o[j])}_{np.log10(wco2[k])}_{np.log10(ws[l])}')
                     print(x)
 
-                    outdir = f'/Users/rahularora/Desktop/Project/Work/degassing_model/{outfile[fileno]}'
+                    outdir = f'./{outfile[fileno]}'
                     outcsv = f'{fo2[i]}_{np.log10(wh2o[j])}_{np.log10(wco2[k])}_{np.log10(ws[l])}.csv'
                     outpath = f'{outdir}/{outcsv}'
 
@@ -452,5 +445,3 @@ for t in range(len(Temp)):
         x = f'{fo2[i]}_{np.log10(wh2o[0])}_{np.log10(wco2[0])}_{np.log10(ws[0])}.csv'
     x = f'{fo2[0]}_{np.log10(wh2o[0])}_{np.log10(wco2[0])}_{np.log10(ws[0])}.csv'
 
-# Note: The residual/diagnostic block at the end of the original file was commented out.
-# It has been kept commented to avoid logic changes.

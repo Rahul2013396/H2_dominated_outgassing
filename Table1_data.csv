@@ -1,0 +1,38 @@
+# This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu
+# Wed Jan 29 12:51:35 2025
+#
+# User preference: *
+#
+# CONSTRAINT:  where (pl_name_display like '%trappist%')
+#
+# COLUMN pl_name:        Planet Name
+# COLUMN hostname:       Host Name
+# COLUMN pl_orbper:      Orbital Period [days]
+# COLUMN pl_orbsmax:     Orbit Semi-Major Axis [au]
+# COLUMN pl_rade:        Planet Radius [Earth Radius]
+# COLUMN pl_radj:        Planet Radius [Jupiter Radius]
+# COLUMN pl_masse:       Planet Mass [Earth Mass]
+# COLUMN pl_massj:       Planet Mass [Jupiter Mass]
+# COLUMN pl_orbeccen:    Eccentricity
+# COLUMN pl_insol:       Insolation Flux [Earth Flux]
+# COLUMN pl_eqt:         Equilibrium Temperature [K]
+# COLUMN st_teff:        Stellar Effective Temperature [K]
+# COLUMN st_rad:         Stellar Radius [Solar Radius]
+# COLUMN st_mass:        Stellar Mass [Solar mass]
+# COLUMN st_logg:        Stellar Surface Gravity [log10(cm/s**2)]
+#
+pl_name,hostname,pl_orbper,pl_orbsmax,pl_rade,pl_radj,pl_masse,pl_massj,pl_orbeccen,pl_insol,pl_eqt,st_teff,st_rad,st_mass,st_logg,Star_Xray,Star_EUV,Stellar_age
+Earth,Sun,365,1,1,0.01,1,1e-3,0.017,0,256,5778,1,1,0,0.85,3.03,4.5
+Venus,Sun,224.7,0.72,0.94,0.094,0.815,0.8151e-3,0.007,0,260,5778,1,1,1,0.85,3.03,4.5
+Mars,Sun,687,1.52,0.53,0.0053,0.107,0.1071e-3,0.094,0,190,5778,1,1,1,0.85,3.03,4.5
+TRAPPIST-1 b,TRAPPIST-1,1.51,0.011548,1.121,0.100,1.01700,0.00320,0.006220,0,400,2520,0.1234,0.089,0.09,0.134,0.24,7.6
+TRAPPIST-1 c,TRAPPIST-1,2.42,0.015815,1.095,0.098,1.15600,0.00364,0.006540,0,340,2520,0.1234,0.089,0.09,0.134,0.24,7.6
+TRAPPIST-1 d,TRAPPIST-1,4,0.022280,0.784,0.070,0.29700,0.00093,0.008370,0,286,2520,0.1234,0.089,0.09,0.134,0.24,7.6
+TRAPPIST-1 e,TRAPPIST-1,6,0.029283,0.910,0.081,0.77200,0.00243,0.005100,0,251,2520,0.1234,0.089,0.09,0.134,0.24,7.6
+TRAPPIST-1 f,TRAPPIST-1,9.2,0.038534,1.046,0.093,0.93400,0.00294,0.010070,0,217,2520,0.1234,0.089,0.09,0.134,0.24,7.6
+TRAPPIST-1 g,TRAPPIST-1,12.3,0.046877,1.148,0.102,1.14800,0.00361,0.002080,0,197,2520,0.1234,0.089,0.09,0.134,0.24,7.6
+TRAPPIST-1 h,TRAPPIST-1,18.76,0.061935,0.773,0.069,0.33100,0.00104,0.005670,0,168,2520,0.1234,0.089,0.09,0.134,0.24,7.6
+L 98-59 b, L 98-59,2.2531,0.0223,0.836,0.0785,0.46,0.0013,0.031,24.7,627,3415,0.303,0.273,4.86,0,0.55,1
+L 98-59 c, L 98-59,3.690,0.0386,1.329,0.1236,2.0,0.00698,0.002,12.8,553,3415,0.303,0.273,4.86,0,0.55,1
+L 98-59 d, L 98-59,7.45,0.0494,1.627,0.1357,1.64,0.00610,0.006,5.01,416,3415,0.303,0.273,4.86,0,0.55,1
+LP 791-18d, LP 791-18,2.75,0.019,1.032,0.009,0.9,0.0028,0.0015,0,395.5,2960,0.182,0.139,-0.09,2.41,0.48,0.5

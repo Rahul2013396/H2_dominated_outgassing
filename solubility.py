@@ -346,59 +346,6 @@ for t in range(len(temp)):
     S2_minus = S_oneill_sulphide(basalt, P, fs2, fo2, temp[t])
     S6_plus  = S_oneill_sulphate(basalt, P, fs2, fo2, temp[t])
 
-    # Paper comparison file is loaded here in original; plotting remains commented
-    fmq, s_paper = np.loadtxt(
-        '/Users/rahularora/Desktop/Project/Work/degassing_model/sulphate_hughs_constP.txt',
-        delimiter=',', unpack=True
-    )
-    s_paper = 10**s_paper
-
-# Final figure calls (kept as in original; no-op without prior plt imports/usage here)
-# plt.xlabel('fO2 (FMQ)')
-# plt.ylabel('mole fraction of S')
-# plt.yscale('log')
-# plt.legend()
-# plt.savefig('/Users/rahularora/Desktop/Project/Work/degassing_model/sulphate_hughs_constP_solubility.png')
-# plt.clf()
-
-# ----------------------------
-# Additional constant-mass / sulfur budget blocks preserved below as comments
-# ----------------------------
-
-# dfmq = np.arange(-5,5.5,0.5)
-# mstot=0.0004 
-# x = mstot*64/32
-# P = np.ones_like(dfmq)
-# K1 ,K2, K3,K4,K5 = symonds_equi_const(1473)
-# fo2 = O2_fugacity2(1,dfmq,1473)
-# fso2 = (1-x/(x-2))*(K4*fo2)**2
-# fs2 = (fso2/(K4*fo2))**2
-# P = fso2 + fs2 + fo2
-# S2_minus = S_oneill_sulphide(basalt,P,fs2,fo2,1473)*1e6
-# S6_plus = S_oneill_sulphate(basalt,P,fs2,fo2,1473)*1e6
-# fmq, s_paper = np.loadtxt('/Users/rahularora/Desktop/Project/Work/degassing_model/sulphate_hughs_constP.txt',delimiter=',',unpack=True)
-# s_paper = 10**s_paper
-# plt.plot(dfmq,S2_minus,label = 'sulphide')
-# plt.plot(dfmq,S6_plus,label = 'sulphate')
-# plt.plot(fmq,s_paper,label='paper sulphate')
-# plt.plot(dfmq,S6_plus+S2_minus,label='sum')
-# plt.xlabel('fO2 (FMQ)')
-# plt.ylabel('mole fraction of S')
-# plt.yscale('log')
-# plt.legend()
-# plt.savefig('/Users/rahularora/Desktop/Project/Work/degassing_model/sulphide.png')
-# plt.clf()
-# plt.plot(dfmq,np.ones_like(fo2)*fs2,label = 'S2')
-# plt.plot(dfmq,fso2,label = 'SO2')
-# plt.plot(dfmq,fo2,label = 'O2')
-# plt.plot(dfmq,P,label='Pressure')
-# plt.yscale('log')
-# plt.xlabel('fO2 (FMQ)')
-# plt.ylabel('Pressure / Partial pressure (bar)')
-# plt.ylim(1e-12,1e4)
-# plt.legend()
-# plt.savefig('/Users/rahularora/Desktop/Project/Work/degassing_model/sulphur.png')
-# plt.clf()
 
 
 def sulphur_weigth_ratio(comp, fo2, T):
