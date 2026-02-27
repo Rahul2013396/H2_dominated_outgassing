@@ -1,17 +1,16 @@
 # H₂-Dominated Outgassing
 
-This repository contains Python scripts used to model **volcanic H₂ outgassing and atmospheric escape** on rocky exoplanets.  
-The framework explores when volcanic supply of H₂ can balance hydrodynamic loss, defining the **“Outgassing Zone (OZ)”** where thin, spectroscopically detectable H₂ atmospheres can persist.
+This repository contains a physically motivated outgassing model developed to quantify volatile release from rocky exoplanet interiors and evaluate its impact on atmospheric composition and detectability. The framework couples melt–gas equilibrium chemistry with volatile solubility, redox state (fO₂), and mantle volatile inventories to compute speciation and fluxes of major gases (e.g., H₂, H₂O, CO₂, CO, SO₂, H₂S).
 
 ---
 
 ## 🔬 Overview
 
 The model couples:
-- **Interior degassing** (H₂, H₂O, CO₂, S species)  
-- **Atmospheric escape** (energy-limited hydrodynamic)  
-- **Mantle redox and volatile solubility** constraints  
-- **Tidal or radiogenic heating** as energy sources  
+- **Interior degassing** (COHS species)  
+- **Atmospheric escape** (energy-limited hydrodynamic escape)  
+- **Mantle redox and volatile solubility**   
+- **Tidal or radiogenic heating**   
 
 It predicts which combinations of planetary mass, irradiation, eccentricity, and mantle oxidation allow long-lived H₂ atmospheres.
 
@@ -21,9 +20,9 @@ It predicts which combinations of planetary mass, irradiation, eccentricity, and
 
 | File | Description |
 |------|--------------|
-| **`COHS_gc.py`** | Main equilibrium solver that computes volcanic outgassing versus atmospheric escape for the C–O–H–S system. |
-| **`grid_plot_COHS_gc.py`** | Generates contour and parameter-space plots showing where outgassing ≥ escape (“Outgassing Zone”). |
-| **`solubility.py`** | Calculates volatile solubilities, graphite saturation, and degassing limits as functions of melt composition and redox state. |
+| **`COHS_gc.py`** | Main equilibrium solver that computes volcanic outgassing speciation for the C–O–H–S system. |
+| **`grid_plot_COHS_gc.py`** | Generates contour and parameter-space plots for speciaiton of outgassing. |
+| **`solubility.py`** | Calculates volatile solubilities, graphite saturation, and degassing limits as functions of volatile composition and redox state. |
 | **`subfunctions.py`** | Contains helper functions, constants, and conversion utilities used across the model. |
 
 ---
@@ -81,7 +80,6 @@ Set the parameters that define your grid and physical setup.
 | **`wco2`** | Melt CO₂ content | `np.logspace(-5, -2, 10)` | Defines carbon reservoir |
 | **`ws`** | Melt sulfur content | `np.logspace(-4, -3, 10)` | Defines sulfur reservoir |
 | **`outfile`** | Output directory names | e.g., `['Output_with_gc_COHS']` | Where CSVs are stored |
-| **`fileno`** | Output selector | `0`, `1`, … | Chooses active folder |
 | **`newrun`** | Run flag | `1 = force rerun`, `0 = skip` | Prevents overwriting |
 | **`uselast`** | Continuation flag | `1 = use previous solution` | Speeds up grid runs |
 
@@ -94,7 +92,7 @@ Each combination of (`Temp`, `fo2`, `wh2o`, `wco2`, `ws`) triggers a separate eq
 Each run produces a CSV file named after its parameters, e.g.:
 
 ```
-FMQ_-2.0_-4.0_-4.0_-3.0.csv
+-2.0_-4.0_-4.0_-3.0.csv == FMQ_log10(H2O)_log10(CO2)_log10(S).csv
 ```
 
 Each file contains melt and gas composition versus pressure:
