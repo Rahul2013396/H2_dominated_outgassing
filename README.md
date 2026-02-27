@@ -24,6 +24,7 @@ It predicts which combinations of planetary mass, irradiation, eccentricity, and
 | **`grid_plot_COHS_gc.py`** | Generates contour and parameter-space plots for speciaiton of outgassing. |
 | **`solubility.py`** | Calculates volatile solubilities, graphite saturation, and degassing limits as functions of volatile composition and redox state. |
 | **`subfunctions.py`** | Contains helper functions, constants, and conversion utilities used across the model. |
+| **`volatile_inventory.py`** | Calcualtes the volatile invetory timescale for a given set of planet as a function of outgassing efficiency. |
 
 ---
 
